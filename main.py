@@ -3,5 +3,7 @@ from classes import *
 
 if __name__ == '__main__':
     pokeApi = BuscarAPI()
-    pokeApi.pokemons_detalhes()
 
+    pokeApi.pintar_linhas()
+    print(f"\n{'POKEDEX':^40}")
+    pokeApi.pokemons_detalhes()

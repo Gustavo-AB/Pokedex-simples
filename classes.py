@@ -30,19 +30,28 @@ class BuscarAPI:
 
     def pokemons_detalhes(self):
         for index in self.list_of_pokemons:
-            print('\033[36m=\033[m'*40)
+            self.pintar_linhas()
+            print()
             print('\033[31m-\033[m'*40)
             print(f"\033[34m{index['nome'].upper():^40}\033[m")  
             print(f"\033[35mNome\033[m: \033[32m{index['nome'].capitalize()}\033[m")  
             print(f"\033[35mPeso\033[m: \033[32m{index['peso']:.2f}Kg\033[m")  
-            print(f"\033[35mAltura\033[m: \033[32m{index['altura']}m\033[m")   
+            print(f"\033[35mAltura\033[m: \033[32m{index['altura']}m\033[m") 
+
             if len(index['tipo']) > 1:
                 print(f"\033[35mTipo\033[m: \033[32m{index['tipo'][0]['type']['name'].capitalize()}", end='')  
                 print(f", {index['tipo'][0+1]['type']['name'].capitalize()}\033[m")
             else:
-                print(f"\033[35mTipo\033[m: \033[32m{index['tipo'][0]['type']['name'].capitalize()}\033[m  ")  
+                print(f"\033[35mTipo\033[m: \033[32m{index['tipo'][0]['type']['name'].capitalize()}\033[m")  
+
             print('\033[31m-\033[m'*40)  
-            print('\033[36m=\033[m'*40)
+            self.pintar_linhas()
+            print()
             print(f'\033[33m{"~":^40}\033[m')
+
+    def pintar_linhas(self, char='~'):
+        for c in range(1, 21):
+            print('\033[35m~\033[m', end='')
+            print('\033[34m~\033[m', end='')
             
         
