@@ -4,7 +4,7 @@ import json
 
 class BuscarAPI:
     def __init__(self):
-        self.url = requests.get(f'https://pokeapi.co/api/v2/pokemon')
+        self.url = requests.get(f'https://pokeapi.co/api/v2/pokemon/?limit=10&offset=20')
         self.api = self.url.json()
         self.pokemons_acesso = list()
         self.poke = dict()
