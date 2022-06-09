@@ -4,7 +4,7 @@ import json
 
 class BuscarAPI:
     def __init__(self):
-        self.url = requests.get(f'https://pokeapi.co/api/v2/pokemon/?limit=10&offset=20')
+        self.url = requests.get(f'https://pokeapi.co/api/v2/pokemon/?limit=2&offset=20')
         self.api = self.url.json()
         self.pokemons_acesso = list()
         self.poke = dict()
@@ -21,8 +21,8 @@ class BuscarAPI:
             acesso = requests.get(detalhe)
             acesso = acesso.json()
             self.poke['nome'] = acesso['name']
-            self.poke['peso'] = float(acesso['weight'])
-            self.poke['altura'] = float(acesso['height'])
+            self.poke['peso'] = int(acesso['weight'])
+            self.poke['altura'] = int(acesso['height'])
             self.poke['tipo'] = acesso['types']
 
             self.list_of_pokemons.append(self.poke.copy())
@@ -35,7 +35,7 @@ class BuscarAPI:
             print('\033[31m-\033[m'*40)
             print(f"\033[34m{index['nome'].upper():^40}\033[m")  
             print(f"\033[35mNome\033[m: \033[32m{index['nome'].capitalize()}\033[m")  
-            print(f"\033[35mPeso\033[m: \033[32m{index['peso']:.2f}Kg\033[m")  
+            print(f"\033[35mPeso\033[m: \033[32m{index['peso']}Kg\033[m")  
             print(f"\033[35mAltura\033[m: \033[32m{index['altura']}m\033[m") 
 
             if len(index['tipo']) > 1:
